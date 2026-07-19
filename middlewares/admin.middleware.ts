@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+import "../types/express";
 
 export const adminMiddleware = (
     req: Request,
