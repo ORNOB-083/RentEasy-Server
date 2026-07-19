@@ -82,3 +82,14 @@ export interface Comment {
     createdAt: Date;
     updatedAt: Date;
 }
+
+export interface AppUser {
+    _id?: ObjectId;
+    name: string;
+    email: string;
+    image?: string;
+    phone?: string;
+    role: "user" | "admin";
+    isFraud?: boolean;
+    createdAt?: Date;
+}
