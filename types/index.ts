@@ -71,3 +71,14 @@ export interface SavedProperty {
     propertyId: string;
     createdAt: Date;
 }
+
+export interface Comment {
+    _id?: ObjectId;
+    propertyId: string;
+    userId: string;
+    userName: string;
+    userImage?: string;
+    text: string;
+    createdAt: Date;
+    updatedAt: Date;
+}
