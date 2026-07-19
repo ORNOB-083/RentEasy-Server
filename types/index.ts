@@ -1,4 +1,5 @@
 import { ObjectId } from "mongodb";
+export type BookingStatus = "pending" | "accepted" | "rejected";
 
 export type PropertyType =
     | "Apartment"
@@ -33,6 +34,23 @@ export interface Property {
     posterPhone: string;
     status: VerificationStatus;
     isAdvertised: boolean;
+    createdAt: Date;
+    updatedAt: Date;
+}
+
+export interface Booking {
+    _id?: ObjectId;
+    propertyId: string;
+    propertyTitle: string;
+    requesterId: string;
+    requesterName: string;
+    requesterEmail: string;
+    ownerId: string;
+    phone: string;
+    whatsapp?: string;
+    facebook?: string;
+    message?: string;
+    status: BookingStatus;
     createdAt: Date;
     updatedAt: Date;
 }
