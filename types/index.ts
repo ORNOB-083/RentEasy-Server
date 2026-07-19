@@ -54,3 +54,13 @@ export interface Booking {
     createdAt: Date;
     updatedAt: Date;
 }
+
+export interface Notification {
+    _id?: ObjectId;
+    recipientId: string;
+    type: "new_booking" | "booking_accepted" | "booking_rejected";
+    relatedBookingId?: ObjectId;
+    message: string;
+    isRead: boolean;
+    createdAt: Date;
+}
