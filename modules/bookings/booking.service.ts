@@ -1,6 +1,7 @@
 import { ObjectId } from "mongodb";
 import { getDB } from "../../config/db";
 import { Booking } from "../../types";
+import { createNotification } from "../notifications/notification.service";
 
 const COLLECTION = "bookings";
 const getCollection = () => getDB().collection<Booking>(COLLECTION);
@@ -39,14 +40,11 @@ export const createBooking = async (data: {
 
     const result = await getCollection().insertOne(booking);
 
-    // Create a notification for the property owner
-    await getDB().collection("notifications").insertOne({
+    await createNotification({
         recipientId: property.posterId,
         type: "new_booking",
         relatedBookingId: result.insertedId,
         message: `${data.requesterName} requested to book your property: ${property.title}`,
-        isRead: false,
-        createdAt: new Date(),
     });
 
     return { ...booking, _id: result.insertedId };

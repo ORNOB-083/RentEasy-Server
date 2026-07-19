@@ -64,3 +64,10 @@ export interface Notification {
     isRead: boolean;
     createdAt: Date;
 }
+
+export interface SavedProperty {
+    _id?: ObjectId;
+    userId: string;
+    propertyId: string;
+    createdAt: Date;
+}

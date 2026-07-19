@@ -5,6 +5,7 @@ import { errorMiddleware } from "./middlewares/error.middleware";
 import propertyRoutes from "./modules/properties/property.route";
 import bookingRoutes from "./modules/bookings/booking.route";
 import notificationRoutes from "./modules/notifications/notification.route";
+import savedRoutes from "./modules/saved/saved.route";
 
 const app: Application = express();
 
@@ -30,8 +31,8 @@ app.get("/", (req: Request, res: Response) => {
 app.use("/api/properties", propertyRoutes);
 app.use("/api/bookings", bookingRoutes);
 app.use("/api/notifications", notificationRoutes);
+app.use("/api/saved", savedRoutes);
 // app.use("/api/comments", commentRoutes);
-// app.use("/api/saved", savedRoutes);
 // app.use("/api/admin", adminRoutes);
 // app.use("/api/ai", aiRoutes);
 
