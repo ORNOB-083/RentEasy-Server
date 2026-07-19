@@ -2,6 +2,7 @@ import express, { Application, Request, Response } from "express";
 import cors from "cors";
 import { env } from "./config/env";
 import { errorMiddleware } from "./middlewares/error.middleware";
+import propertyRoutes from "./modules/properties/property.route";
 
 const app: Application = express();
 
@@ -24,7 +25,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 // Feature routes will be mounted here as we build them, e.g.:
-// app.use("/api/properties", propertyRoutes);
+app.use("/api/properties", propertyRoutes);
 // app.use("/api/bookings", bookingRoutes);
 // app.use("/api/comments", commentRoutes);
 // app.use("/api/saved", savedRoutes);
